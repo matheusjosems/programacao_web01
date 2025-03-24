@@ -1,0 +1,55 @@
+/*  SELETOR UNIVERSAL */
+*{ margin: 2;
+   padding: 10;
+   color: red;
+}
+
+/*SELETOR TAG ou ELEMENTO */
+
+h1{
+    color: blue;
+    font-size: 50px;
+}
+
+p{
+    color: green;
+    font-size: 16px;
+}
+
+/* SELETOR ATRIBUTO */
+input[type="text"]{
+    width: 200px;
+    background-color: cadetblue;
+    height:40px;
+    border: none;
+}
+
+input[type="email"]{
+    width: 200px;
+    background-color: gray;
+    height:30px;
+    border: none;
+}
+
+input[type="submit"]{
+    width: 50px;
+    background-color: bisque;
+    height:35px;
+    border: none;
+    cursor: pointer;
+    color: rgb(3, 56, 38);
+}
+
+/* AGRUPAMENTO DE SELETOR */
+
+/* SELETOR CLASS */
+
+.texto-principal{ color: rgb(255, 0, 144); text-align: center;}
+.fundo-principal { background-color: blue; padding: 20px;}
+
+/* SELETO ID */
+#conteudo{ background-color: chartreuse;
+    padding: 20px;
+    color: black;}
+
+    
