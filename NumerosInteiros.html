@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Missao</title>
+</head>
+<body>
+    <h1> Soma de dois inteiros </h1> 
+
+    <input type="button" name="btn_concatena" value="Concatenar" onclick="concatena()">
+    
+ <script type="text/javascript">
+
+    //DEFINIÇAO DE VARIAVEIS
+    var js_n1;
+    var js_n2;
+    var js_soma;
+
+    function concatena(){
+        // ENTRADA DE DADOS 
+        js_n1=window.prompt('imforme o primeiro numero:','digite aqui')
+        js_n2=window.prompt('imforme o segundo numero:','digite aqui')
+
+        //Processamento de dados 
+        js_soma = parseInt(js_n1)+parseInt(js_n2);
+
+
+        //Saida de dados 
+        document.write('o resutado da soma'+js_soma)
+
+    }
+
+ </script>
+</body>
+</html>

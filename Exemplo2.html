@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concatenaçao</title>
+</head>
+<body>
+    <h1> Boas vindas Concatenaçao de campos </h1>
+
+<!-- DEFINIÇAO DO FORMULARIO -->
+ <form name="FormaConcatena" action="matheus.jose@sempreceub.com" method="post">
+
+    Digite o nome .....................: <input type="text" name="f_nome">
+    <br>
+    <br>
+    Digite o sobrenome .....................: <input type="text" name="f_sobrenome">
+    <br>
+    <br>
+    <input type="button" name="btn_concatena" value="Concatenar" onclick="concatena()">
+    <input type="reset" name="btn_reset" value="Cancelar">
+ </form>
+
+ <!-- INICIO JAVASCRIPT-->
+
+ <script type="text/javascript">
+    //objetivo:capturar nome, sobrenome e concatenar formando um nome completo 
+
+    /*DEFINIÇAO DE VARIAVEIS*/
+    var js_nome;
+    var js_sobrenome;
+    var js_nomecompleto;
+
+    //CRIAR FUNÇAO PARA UNIR OS DOIS NOMES 
+    function concatena(){
+        // ENTRADA DE DADOS 
+        js_nome = document.FormaConcatena.f_nome.value;
+        js_sobrenome = document.FormaConcatena.f_sobrenome.value;
+
+        //Processamento de dados 
+        js_nomecompleto = js_nome+'  '+js_sobrenome;
+
+        //Saida de dados 
+        window.alert('Ola '+js_nomecompleto)
+
+    }
+ </script>
+</body>
+</html>
