@@ -26,7 +26,7 @@
 
         // criar funcao para capturar dados do formulario e fazer a pesquisa por selecao multipla
         function verificames(){
-            js_mes = pareInt( document.formCalendario.f_mes.value);
+            js_mes = parseInt( document.formCalendario.f_mes.value);
 
             // Inicio da estrutura de selecao SWITCH 
 
@@ -45,7 +45,7 @@
                 case 12 : document.formCalendario.f_nomemes.value = 'Dezembro';break;
 
                 default: document.formCalendario.f_nomemes.value = 'Mês invalido!';break;
-                
+
             }
         }
 
