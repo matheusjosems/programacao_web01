@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Cadastro</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .welcome {
+            font-size: 18px;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #3498db;
+        }
+        .instruction {
+            font-style: italic;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        input[type="text"], 
+        input[type="email"], 
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        .radio-group, .checkbox-group {
+            margin-top: 5px;
+        }
+        .radio-group label, .checkbox-group label {
+            display: inline-block;
+            margin-right: 15px;
+            font-weight: normal;
+            cursor: pointer;
+        }
+        select {
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+        }
+        .buttons {
+            margin-top: 30px;
+            text-align: center;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 0 10px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        button[type="reset"] {
+            background-color: #e74c3c;
+        }
+        button[type="reset"]:hover {
+            background-color: #c0392b;
+        }
+        .error {
+            color: #e74c3c;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Formulário de Cadastro</h1>
+        
+        <div class="welcome">Olá, Usuário!</div>
+        <div class="instruction">
+            Por favor, preencha os campos abaixo e depois clique no botão Enviar. 
+            Caso necessite apagar os dados, dê um clique no botão Limpar. Muito Obrigado!
+        </div>
+        
+        <form id="cadastroForm" onsubmit="return validarFormulario()">
+            <div class="form-group">
+                <label for="nome">Nome Completo:</label>
+                <input type="text" id="nome" name="nome" required>
+                <div id="nomeError" class="error">Você deve preencher o campo Nome.</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Seu e-mail:</label>
+                <input type="email" id="email" name="email">
+            </div>
+            
+            <div class="form-group">
+                <label>Sexo:</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="sexo" value="feminino"> Feminino</label>
+                    <label><input type="radio" name="sexo" value="masculino" checked> Masculino</label>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>Estado Civil:</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="estadoCivil" value="solteiro"> Solteiro</label>
+                    <label><input type="radio" name="estadoCivil" value="casado" checked> Casado</label>
+                    <label><input type="radio" name="estadoCivil" value="enrolado"> Enrolado</label>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>Bens que possui:</label>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="bens" value="casa"> Casa</label>
+                    <label><input type="checkbox" name="bens" value="automovel"> Automóvel</label>
+                    <label><input type="checkbox" name="bens" value="moto"> Moto</label>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="faixaIdade">Faixa de idade:</label>
+                <select id="faixaIdade" name="faixaIdade">
+                    <option value="3-10">3 a 10 anos</option>
+                    <option value="11-17">11 a 17 anos</option>
+                    <option value="18-25">18 a 25 anos</option>
+                    <option value="26-35" selected>26 a 35 anos</option>
+                    <option value="36-50">36 a 50 anos</option>
+                    <option value="51+">51 anos ou mais</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label>Hobby preferido:</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="hobby" value="ler" checked> Ler livros</label>
+                    <label><input type="radio" name="hobby" value="musica"> Ouvir música</label>
+                    <label><input type="radio" name="hobby" value="esportes"> Praticar esportes</label>
+                    <label><input type="radio" name="hobby" value="viagens"> Viajar</label>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="observacoes">Observações Gerais:</label>
+                <textarea id="observacoes" name="observacoes"></textarea>
+            </div>
+            
+            <div class="buttons">
+                <button type="submit">Enviar os dados</button>
+                <button type="reset">Limpar os dados</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function validarFormulario() {
+            const nome = document.getElementById('nome').value.trim();
+            const nomeError = document.getElementById('nomeError');
+            
+            if (nome === '') {
+                nomeError.style.display = 'block';
+                return false;
+            } else {
+                nomeError.style.display = 'none';
+                alert('Formulário enviado com sucesso!');
+                return true;
+            }
+        }
+        
+        // Atualizar a mensagem de boas-vindas com o nome do usuário
+        document.getElementById('nome').addEventListener('input', function() {
+            const nome = this.value.trim();
+            const welcomeMsg = document.querySelector('.welcome');
+            
+            if (nome) {
+                welcomeMsg.textContent = `Olá, ${nome}!`;
+            } else {
+                welcomeMsg.textContent = 'Olá, Usuário!';
+            }
+        });
+    </script>
+</body>
+</html>
