@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estrutura_IF</title>
+</head>
+<body>
+    <script lang="javascript">
+        /* Objetivo: ler dois valores, idenpendente da 
+        ordem em que foram digitados e aprsenta-los em ordem crescente.*/
+        // definicao de variaveis 
+        
+        var js_n1;
+        var js_n2;
+        var js_n3;
+
+        // ENTRADA DE DADOS 
+       js_n1= parseInt(window.prompt('informe o valor do primeiro numero', '00'));
+       js_n2= parseInt(window.prompt('informe o valor do segundo numero', '00'));
+
+        //SAIDA DE DADOS - com classificaçao por definoçao codicional (if)
+        if (js_n1>js_n2){
+            js_n3 = js_n1;
+            js_n1 = js_n2;
+            js_n2 = js_n3
+        }
+
+        document.write ('<p><b> classificacao em ordem Crescente </b>'+js_n1+'e'+js_n2);
+    </script>
+</body>
+</html>
