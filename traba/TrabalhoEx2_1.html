@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Avaliação com If/Else</title> <!---->
+
+    <!-- CSS DO CORPO BOTAO E INPUT -->
+    <style> 
+        body { 
+            font-family: Arial; 
+            padding: 20px; 
+        }
+        input, button {
+            margin: 5px 0; 
+            display: block;
+        }
+    </style>
+
+
+</head>
+<body>
+    <h2>Avaliação com If/Else</h2> <!-- titulo com fonte h2-->
+
+
+    <!-- FORMULARIO -->
+    <form id="formIf">
+
+        <!-- Campo para inserir o nome do aluno -->
+        Nome: <input type="text" id="nome">
+
+        
+        <!-- Campo para inserir o nome do aluno -->
+
+        Nota 1: <input type="number" id="nota1">
+        Nota 2: <input type="number" id="nota2">
+        Nota 3: <input type="number" id="nota3">
+        Nota 4: <input type="number" id="nota4">
+              
+        <!-- Botão que aciona a função de cálculo -->
+        <button type="button" onclick="avaliarIf()">Calcular</button>
+    </form>
+
+    <!-- Div onde os resultados serão exibidos -->
+    <div id="resultado"></div>
+
+    <!--JAVASCRIPT PARA ANALISAR AS NOTAS -->
+    <script>
+
+        // Função principal que avalia as notas do aluno
+        function avaliarIf() {
+
+            // Obtém o valor do campo de nome
+            let nome = document.getElementById('nome').value;
+
+            // Cria um array com as 4 notas convertidas para números decimais
+            let notas = [
+                parseFloat(document.getElementById('nota1').value),
+                parseFloat(document.getElementById('nota2').value),
+                parseFloat(document.getElementById('nota3').value),
+                parseFloat(document.getElementById('nota4').value)
+            ];
+
+            // Calcula a média das notas:
+            // 1. reduce() soma todos os elementos do array
+            // 2. divide por 4 para obter a média  
+            let media = notas.reduce((a, b) => a + b, 0) / 4;
+
+            // Variável que armazenará a situação do aluno
+            let situacao = "";
+
+
+            // Estrutura condicional aninhada para determinar a situação:
+            // 1. Se média >= 70 → Aprovado
+            // 2. Se média entre 50 e 69 → Recuperação
+            // 3. Se média < 50 → Reprovado
+            if (media >= 70) {
+                situacao = "Aprovado";
+            } else {
+                if (media >= 50) {
+                    situacao = "Recuperação";
+                } else {
+                    situacao = "Reprovado";
+                }
+            }
+
+            
+            // Exibe os resultados na div com id "resultado"
+            // Usa template strings (``) para criar HTML dinâmico
+            // toFixed pra formatar numeros com  mais de duas casa decimais 
+            document.getElementById("resultado").innerHTML = `
+                <p><strong>Aluno:</strong> ${nome}</p>
+                <p><strong>Média:</strong> ${media.toFixed(2)}</p> 
+                <p><strong>Situação:</strong> ${situacao}</p>
+            `;
+        }
+    </script>
+</body>
+</html>

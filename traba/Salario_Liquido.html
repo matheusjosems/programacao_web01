@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculo do salario liquido</title>
+</head>
+<body>
+    <script lang="javascript">
+        /* Objetivo: Calcular o salário líquido de um funcionário que trabalha por hora (horista).*/
+        // definicao de variaveis 
+
+        var js_qht; //Quantidade de horas trabalhadas no mês 
+        var js_vht; //Valor da hora de trabalho
+        var js_inss; //Percentual de desconto do INSS
+
+        // variaveis que serao usadas para culculos 
+        var js_salario_bruto, js_desconto_inss, js_salario_liquido;
+        var js_classificacao;
+
+        // ENTRADA DE DADOS 
+       js_qht= parseFloat(window.prompt('Quantidade de Horas Trabalhadas/Mês =>', '135 a 180'));
+       js_vht= parseFloat(window.prompt('Valor da Hora Trabalhada =>', '25 a 70'));
+       js_inss= parseFloat(window.prompt('Percentual de Desconto INSS =>', '5 a 15'));
+
+       //calculos
+       js_salario_bruto = js_qht * js_vht;
+       js_desconto_inss = js_salario_bruto * (js_inss / 100);
+       js_salario_liquido = js_salario_bruto - js_desconto_inss;
+
+        //Classificaçao usando if
+        if (js_salario_liquido < 3000){
+            js_classificacao = " Insadisfatorio ";
+
+        }else if(js_salario_liquido >= 3000 && js_salario_liquido < 6000){
+            js_classificacao = " Baixo ";
+
+        }else if(js_salario_liquido >= 6000 && js_salario_liquido < 10000){
+            js_classificacao = " Medio ";
+
+        }else {
+            js_classificacao = " Alto ";
+        }
+
+        // Saida de dados 
+        document.write('<h2>DEMONSTRATIVO PARA CÁLCULO DO SALÁRIO LÍQUIDO</h2>');
+        document.write('<p>Quantidade de Horas Trabalhadas (135 a 180) => ' + js_qht + '</p>');
+        document.write('<p>Valor da Hora Trabalhada (25 a 70) => ' + js_vht + '</p>');
+        document.write('<p>Percentual de Desconto INSS (5 a 15) => ' + js_inss + '</p>');
+        document.write('<hr>');
+        document.write('<p><strong>Salário BRUTO =</strong> ' + js_salario_bruto.toFixed(2) + '</p>');
+        document.write('<p>Total de Desconto INSS = ' + js_desconto_inss.toFixed(2) + '</p>');
+        document.write('<p><strong>Salário LÍQUIDO =</strong> ' + js_salario_liquido.toFixed(2) + ' ... (Salário ' + js_classificacao + '!)</p>');
+    
+    </script>
+
+</body>
+</html>

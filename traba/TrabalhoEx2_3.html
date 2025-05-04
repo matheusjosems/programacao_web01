@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Avaliação com Ternário</title>
+
+    <!--CSS-->
+    <style>
+        body { 
+            font-family: Arial; 
+            padding: 20px; 
+        }
+
+        input, button { 
+            margin: 5px 0; 
+            display: block; 
+        }
+    </style>
+</head>
+
+
+<body>
+    <h2>Avaliação com Operador Ternário</h2>
+    <form id="formTernario">
+        <!-- Campo para inserir o nome do aluno -->
+        Nome: <input type="text" id="nome">
+
+        <!-- Campos para inserir as 4 notas -->
+        Nota 1: <input type="number" id="nota1">
+        Nota 2: <input type="number" id="nota2">
+        Nota 3: <input type="number" id="nota3">
+        Nota 4: <input type="number" id="nota4">
+
+        <!-- Botão que aciona a função de cálculo -->
+        <button type="button" onclick="avaliarTernario()">Calcular</button>
+    </form>
+
+    <!-- Div onde os resultados serão exibidos -->
+    <div id="resultado"></div>
+
+
+
+    <script>// aqui começa o javascript 
+        function avaliarTernario() {
+            // Obtém o valor do campo de nome
+            let nome = document.getElementById('nome').value;
+            let notas = [
+
+                // Cria um array com as 4 notas convertidas para números decimais
+                parseFloat(document.getElementById('nota1').value),
+                parseFloat(document.getElementById('nota2').value),
+                parseFloat(document.getElementById('nota3').value),
+                parseFloat(document.getElementById('nota4').value)
+            ];
+
+            // Calcula a média das notas:
+            let media = notas.reduce((a, b) => a + b, 0) / 4;
+
+            
+            /* Operador ternário aninhado para determinar a situação:
+            * 1. Primeiro verifica se média >= 70 → "Aprovado"
+            * 2. Se não, verifica se média >= 50 → "Recuperação"
+            * 3. Se nenhuma das anteriores for verdadeira → "Reprovado" */
+            
+            let situacao = media >= 70 ? "Aprovado" :
+                           media >= 50 ? "Recuperação" :
+                           "Reprovado";
+
+
+            //EXIBE OS RESUTADOS 
+            document.getElementById("resultado").innerHTML = `
+                <p><strong>Aluno:</strong> ${nome}</p>
+                <p><strong>Média:</strong> ${media.toFixed(2)}</p>
+                <p><strong>Situação:</strong> ${situacao}</p>
+            `;
+        }
+    </script>
+</body>
+</html>

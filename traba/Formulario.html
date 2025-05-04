@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+</head>
+<body>
+    <!-- script de java script para iniciar a pagina com o nome personaliado-->
+    <script lang="javascript">
+        var nome;
+        nome = (window.prompt('Qual seu nome? '));
+        document.write('Olá ' + nome + '!<br> <br>' );
+        document.write('Por favor, preencha os campos abiaxo e depois clique no botão Enviar. Caso nessecario apagar os dados, dê um clique no botão Limpar. <br>');
+        document.write('Muito Obrigado!')
+    </script>
+
+    <!-- formulario -->
+    <!--return validarFormulario() serve para dar notificaçao quando alguma parte nao esta prenchida -->
+    <!---->
+    <form action="" method="post" name="formulario" onsubmit="return validarFormulario()">
+    
+        <!-- partes do formulario -->
+
+        <br>
+        <br>
+        Nome Completo: <input type="text"  name="nome" size="20" maxlength="1000"> 
+        Seu e-mail: <input type="text" name="email" size="20" maxlength="1000">
+
+        <br>
+        Sexo:
+        <br>
+        <input type="radio" name="sexo" value="Feminino" id="fem">
+        <label for="fem">Feminino</label>
+        <br>
+        <input type="radio" name="sexo" value="Masculino" id="mas">
+        <label for="mas">Masculino</label>     
+        <br>
+        <br>
+
+        Estado Civil:
+        <br>
+        <input type="radio" name="estado_civil" value="Solteiro" id="sol" >
+        <label for="sol">Solteiro</label>
+        <br>
+        <input type="radio" name="estado_civil" value="Casado" id="cas" >
+        <label for="cas">Casado</label>     
+        <br>
+        <input type="radio" name="estado_civil" value="Enrolado" id="enr" >
+        <label for="enr">Enrolado</label>  
+        <br>
+        <br>
+
+        Bens que possui:
+        <br>
+        <input type="checkbox" name="bens" value="Casa" id="cs">
+        <label for="cs">Casa</label>
+        <br>
+        <input type="checkbox" name="bens" value="Automovel" id="aut">
+        <label for="aut">Automovel</label>
+        <br>
+        <input type="checkbox" name="bens" value="Moto" id="mot">
+        <label for="mot">Moto</label>
+        <br>
+        <br>
+
+        Faixa de idade: 
+        <select name = "faixa_idade" >
+            <option value="">Selecione</option>
+            <option value="3-10">3 a 10 anos</option>
+            <option value="11-17">11 a 17 anos</option>
+            <option value="18-25">18 a 25 anos</option>
+            <option value="26-40">26 a 40 anos</option>
+            <option value="41-47">41 a 47 anos</option>
+            <option value="48-55">48 a 55 anos</option>
+            <option value="56+">56 anos ou mais</option>
+        </select>
+
+        Hobby preferido:
+        <select name="hobby">
+            <option value="">Selecione</option>
+            <option value="ler">Ler livros</option>
+            <option value="esp">Esportes</option>
+            <option value="mus">Ouvir Música</option>
+            <option value="via">Viajens</option>
+            <option value="coz">Cozinhar</option>
+            <option value="esc">Escrever</option>
+            <option value="outros">outros</option> 
+        </select>
+        <br>
+        <br>
+
+        Observaçoes Gerais:
+        <br>
+        <textarea name="observaçoes" rows="4" cols="40"></textarea>
+        <br>
+        <br>
+
+        <input type="submit" value="Enviar os dados">
+        <input type="reset" value="Limpar os dados">
+    </form>
+    
+</body>
+
+
+<script>
+//java scriptpara validar as entradas e dar notificaçao quando nao prenchidas 
+    function validarFormulario() {
+// variaveis 
+        var nome = document.forms["formulario"]["nome"].value;
+        var email = document.forms["formulario"]["email"].value;
+        var sexo = document.querySelector('input[name="sexo"]:checked');
+        var estadoCivil = document.querySelector('input[name="estado_civil"]:checked');
+        var faixaIdade = document.forms["formulario"]["faixa_idade"].value;
+        var hobby = document.forms["formulario"]["hobby"].value;
+        
+        // Validar cada campo com if 
+        if (nome == "") {
+            alert("Você deve preencher o campo Nome Completo.");
+            return false;
+        }
+        if (email == "") {
+            alert("Você deve preencher o campo E-mail.");
+            return false;
+        }
+        if (!sexo) {
+            alert("Você deve selecionar o Sexo.");
+            return false;
+        }
+        if (!estadoCivil) {
+            alert("Você deve selecionar o Estado Civil.");
+            return false;
+        }
+        if (faixaIdade == "") {
+            alert("Você deve selecionar a Faixa de Idade.");
+            return false;
+        }
+        if (hobby == "") {
+            alert("Você deve selecionar o Hobby preferido.");
+            return false;
+        }
+        
+        return true;
+    }
+</script>
+</html>
